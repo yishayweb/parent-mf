@@ -6,6 +6,7 @@ import { federation } from "@module-federation/vite";
 export default defineConfig(({ mode }) => {
   console.log(mode);
   return {
+    base: "/",
     server: {
       port: 4000,
       origin: "http://localhost:4000",
@@ -18,6 +19,7 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: "host",
+        publicPath: "auto",
         remotes: {
           oneRemote: {
             type: "module",
